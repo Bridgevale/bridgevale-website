@@ -1,0 +1,32 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "public": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'sha256-Ly9Sz02aWJ2hXZmOLqKSCsSYx4RA2pGuZMVn/M2OB3k=' 'sha256-7R4k+ApUPKC+mtwpFw1KxB9Bs6XDaFTDO8FgjfiCMyc=' 'sha256-33fvcKiiRACP54e0BlUp9q0HkNo6o9FsgDZqxwxbF88=' 'sha256-3QkVbfZ5LujtxPxClKgpIonKDh25S5OINEuDnmRA3dk=' 'sha256-mZ676yl6uDynQN8gl+lumaY4pW/K6QBpreD1hayi+8g='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cdn.worldvectorlogo.com; font-src 'self' https://fonts.gstatic.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; frame-ancestors 'none'"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        }
+      ]
+    }
+  ]
+}
