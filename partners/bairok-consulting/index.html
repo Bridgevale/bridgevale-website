@@ -193,6 +193,15 @@
         }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,164,94,0.4); }
+        /* Partner portal sign-in (PILOT-UX-012): a secondary, outlined button beside the contact CTA, which stays the primary one. */
+        .nav-links .nav-login {
+            color: var(--white); border: 1px solid rgba(200,164,94,0.55);
+            padding: calc(0.6rem - 1px) 1.3rem; border-radius: 6px; white-space: nowrap;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .nav-links .nav-login::after { display: none; }
+        .nav-links .nav-login:hover { color: var(--gold); border-color: var(--gold); }
+        .nav-links .nav-login:focus-visible, .footer-col .footer-login:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
         .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
         .mobile-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; transition: 0.3s; border-radius: 2px; }
 
@@ -650,6 +659,18 @@
             .expertise-list { columns: 1; }
             .together { padding: 2rem 1.6rem; }
         }
+        /* PILOT-UX-012: the header's seven entries no longer fit on one line below this width: the menu button takes over
+           (only the header rules of the 640 px block below, repeated). */
+        @media (max-width: 1180px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(11,29,58,0.98); padding: 1.5rem 5%;
+                gap: 1rem; backdrop-filter: blur(16px);
+            }
+        }
         @media (max-width: 640px) {
             section { padding: 4.5rem 5%; }
             .p-hero { padding: 8.5rem 5% 4rem; }
@@ -682,17 +703,18 @@
 <!-- ═══ NAV (absolute links back to the site root) ═══ -->
 <nav id="nav" class="on-dark" aria-label="Primary">
     <a href="/" class="logo" aria-label="Bridgevale Consulting — home"><span class="logo-bridge">Bridge</span><span class="logo-vale">vale</span></a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+    </button>
     <div class="nav-links" id="navLinks">
         <a href="/#about">Who We Are</a>
         <a href="/#services">Services</a>
         <a href="/#expertise">Expertise</a>
         <a href="/#how">Process</a>
         <a href="/#experts">Our Experts</a>
+        <a href="https://portal.bridgevaleconsulting.com/auth/login" class="nav-login">Log in</a>
         <a href="/#contact" class="nav-cta">Get in Touch</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-    </button>
 </nav>
 
 <main id="main">
@@ -1006,6 +1028,7 @@
             <a href="/#how">Process</a>
             <a href="/#experts">Our Experts</a>
             <a href="/#contact">Contact</a>
+            <a href="https://portal.bridgevaleconsulting.com/auth/login" class="footer-login">Log in</a>
         </div>
         <div class="footer-col">
             <h2 class="fc-title">Strategic Partners</h2>
